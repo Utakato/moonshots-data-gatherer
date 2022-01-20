@@ -1,6 +1,7 @@
 import time
 import requests
 from bs4 import BeautifulSoup as bs
+import re
 
 def get_watchlist_count(url):
     with requests.Session() as s:
