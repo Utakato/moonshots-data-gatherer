@@ -1,0 +1,7 @@
+selenium
+bs4
+pymongo
+os
+requests
+time
+re
