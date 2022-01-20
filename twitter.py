@@ -1,4 +1,5 @@
 import requests
+import os
 
 API_BEARER_TOKEN = os.environ.get("API_BEARER_TOKEN")
 search_url = 'https://api.twitter.com/1.1/users/search.json?'  
