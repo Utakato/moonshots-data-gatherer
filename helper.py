@@ -20,7 +20,7 @@ def init_driver(url):
 def scroll_to_bottom(selenium_driver):
     y = 1000
     for timer in range(0,10):
-        selenium_driver.execute_script(f"window.scrollTo(0, {+str(y)})")
+        selenium_driver.execute_script(f"window.scrollTo(0, {str(y)}")
         y += 1000  
         time.sleep(1)
         print("Waiting has ended")        
