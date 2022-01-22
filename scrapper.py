@@ -7,7 +7,16 @@ def create_entry(row, base_url):
     name = row.find("p", attrs={'class': "iworPT"}).text
     tds = row.find_all("td")
     link = base_url + tds[3].find("a", attrs={'class': "cmc-link"}).attrs['href']
-    price = float(tds[3].find("span").text[1:].replace(",", ""))
+
+
+
+    stringprice = tds[3].find("span").text[1:]
+    if stringprice.__contains__("..."):
+        price = "Too many 0's" #maybe find a way to see the actual number.
+    else: 
+        price = float(stringprice.replace(",", "")) 
+
+
     marketCap = int(tds[6].find("span", attrs={'class': "ieFnWP"}).text[1:].replace(",", ""))
 
     return {
@@ -37,6 +46,8 @@ def get_coins(startPage, endPage):
             for row in rows:
                 new_entry = create_entry(row, url)
                 coins.append(new_entry)
+            
+            print(f'Finished page {current_page}')
             
             if current_page == endPage: 
                 break
