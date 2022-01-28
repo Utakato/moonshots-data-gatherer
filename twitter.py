@@ -1,9 +1,9 @@
 import requests
 import os
 
+
 API_BEARER_TOKEN = os.environ.get("API_BEARER_TOKEN")
 search_url = 'https://api.twitter.com/1.1/users/search.json?'  
-
 
 
 def bearer_oauth(r):
@@ -14,9 +14,8 @@ def bearer_oauth(r):
 
 def connect_to_endpoint(url, params):
     response = requests.get(url, auth=bearer_oauth, params=params)
-    print(response.status_code)
-
     if response.status_code != 200:
+        print(response.status_code)
         raise Exception(response.status_code, response.text)
     return response.json()
 
@@ -28,7 +27,6 @@ def update_followers(db_entries, db):
         query_params = {'q' : name}
 
         json_response = connect_to_endpoint(search_url, query_params)
-        print(json_response)
 
         try:
             followers = json_response[0]['followers_count']

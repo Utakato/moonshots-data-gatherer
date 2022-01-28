@@ -61,5 +61,7 @@ def get_coins(startPage, endPage):
 def update_DB(coins_list, db): 
     print("Update initialized! Should take about 7.5 minutes.")
     for coin in coins_list:
-        db.replace_one({"name": coin['name']}, coin)
+        update = { "$set": coin}
+        query = {"name": coin['name']}
+        db.update_one(query ,update)
     print("Updated 900 coins!")

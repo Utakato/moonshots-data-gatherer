@@ -13,6 +13,7 @@ DB_NAME = os.environ.get("DB_NAME")
 if __name__ == '__main__':
     print('Program started!')
     client = pymongo.MongoClient(f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@cluster0.flhu6.mongodb.net/{DB_NAME}?retryWrites=true&w=majority")
+
     db = client["crypto"]
     raw_data_db = db["raw_data"]
     print("Connected to DB!")
