@@ -17,4 +17,4 @@ if __name__ == '__main__':
     print("Connected to DB!")
 
     print("Initializing initial_entries.py")
-    scrapper.create_initial_entries(scrapper.get_coins(0,9),raw_data_db)
+    scrapper.create_initial_entries(scrapper.get_coins(1,9),raw_data_db)

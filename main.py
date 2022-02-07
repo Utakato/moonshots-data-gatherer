@@ -23,7 +23,7 @@ if __name__ == '__main__':
     print("Fetched all entries.")
     
     print("Proceeding to get coins")
-    scrapper.update_DB(scrapper.get_coins(0,9), raw_data_db)
+    scrapper.update_DB(scrapper.get_coins(1,9), raw_data_db)
     print("Got all coins!")
 
     print("Preparing for watchlists")

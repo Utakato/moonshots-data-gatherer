@@ -33,7 +33,7 @@ def get_coins(startPage, endPage):
     url = "https://coinmarketcap.com"
     current_page = startPage
     coins= []
-    i = 0
+    i = startPage
     while True:
         with helper.init_driver(f"{url}/?page={i}") as driver:            
             helper.scroll_to_bottom(driver)
