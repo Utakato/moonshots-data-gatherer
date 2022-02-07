@@ -62,6 +62,11 @@ def update_DB(coins_list, db):
     print("Update initialized! Should take about 7.5 minutes.")
     for coin in coins_list:
         update = { "$set": coin}
-        query = {"name": coin['name']}
+        query = {"rank": coin['rank']}
         db.update_one(query ,update)
     print("Updated 900 coins!")
+
+def create_initial_entries(coins_list, db): 
+    print("Creating entries...")
+    for coin in coins_list:
+        db.insert_one(coin)
